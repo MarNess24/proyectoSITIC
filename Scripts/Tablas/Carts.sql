@@ -4,7 +4,7 @@ BEGIN
 	-- Almacena los diferentes carritos dados de alta en el sistema
 	CREATE TABLE [dbo].[Carts]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del carrito
+		[Cart_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del carrito
 		[Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del carrito
 		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE() -- Fecha de última modificación de la configuración
 	)

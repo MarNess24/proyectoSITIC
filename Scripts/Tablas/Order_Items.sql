@@ -4,15 +4,15 @@ BEGIN
     -- Almacena la información de los elementos del pedido
 	CREATE TABLE [dbo].[Order_Items]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del pedido
-		[Cart_Id] INT NOT NULL,  -- Identificador relación al pedido (maestro)
-		[Product_Id] INT NOT NULL, -- Identificador relación al producto
-		[Quantity] INT NOT NULL, -- Cantidad de producto en el pedido 
-		[Price] DECIMAL(18,2) NOT NULL, -- Precio del producto en el momento de añadirlo al pedido
-		[Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del producto añadido
-		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de última modificación del producto añadido
-        FOREIGN KEY  ([Order_Id]) REFERENCES [dbo].[Orders]([Id]),
-        FOREIGN KEY  ([Product_Id]) REFERENCES [dbo].[Products]([Id])
+      [Order_Items_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del pedido
+      [Cart_Id] INT NOT NULL,  -- Identificador relación al pedido (maestro)
+      [Product_Id] INT NOT NULL, -- Identificador relación al producto
+      [Quantity] INT NOT NULL, -- Cantidad de producto en el pedido 
+      [Price] DECIMAL(18,2) NOT NULL, -- Precio del producto en el momento de añadirlo al pedido
+      [Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del producto añadido
+      [Updated_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de última modificación del producto añadido
+      FOREIGN KEY  ([Order_Id]) REFERENCES [dbo].[Orders]([Id]),
+      FOREIGN KEY  ([Product_Id]) REFERENCES [dbo].[Products]([Id])
 	)
 END
 

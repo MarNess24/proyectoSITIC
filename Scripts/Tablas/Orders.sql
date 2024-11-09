@@ -4,12 +4,11 @@ BEGIN
     -- Almacena la información sobre los pedidos realizados
 	CREATE TABLE [dbo].[Orders]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único de la tabla
-        [Total_Price] DECIMAL(20,2) NOT NULL, -- Precio total del pedido
-        [Status] VARCHAR(50) NOT NULL, -- Estado del pedido (pendiente, enviado, completado)
-        [Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del pedido
-		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de última actualización del pedido
-		
+		[Order_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único de la tabla
+    [Total_Price] DECIMAL(20,2) NOT NULL, -- Precio total del pedido
+    [Status] VARCHAR(50) NOT NULL, -- Estado del pedido (pendiente, enviado, completado)
+    [Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del pedido
+		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE() -- Fecha de última actualización del pedido
 	)
 END
 

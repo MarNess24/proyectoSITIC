@@ -4,10 +4,9 @@ BEGIN
 	-- * Almacena los diferentes estados de existencia de un producto
 	CREATE TABLE [dbo].[Stock_Status]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- * Identificador único de la tabla
-		[Status_Name] VARCHAR(50) NOT NULL, -- * Nombre del estado de existencia
-		[Key] VARCHAR(50) NOT NULL -- * Clave del estado de existencia
-		
+	 [Stock_Status_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- * Identificador único de la tabla
+   	 [Status_Name] VARCHAR(50) NOT NULL, -- * Nombre del estado de existencia
+	 [Key] VARCHAR(50) NOT NULL -- * Clave del estado de existencia
 	)
 END
 

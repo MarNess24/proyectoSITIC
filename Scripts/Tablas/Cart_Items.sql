@@ -3,13 +3,13 @@ BEGIN
 	/* Create Tables */
 	CREATE TABLE [dbo].[Cart_Items]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del carrito
-		[Cart_Id] INT NOT NULL,  -- Identificador relación al carrito (maestro)
-		[Product_Id] INT NOT NULL, -- Identificador relación al producto
-		[Quantity] INT NOT NULL, -- Cantidad de producto en el carrito 
-		[Price] DECIMAL(18,2) NOT NULL, -- Precio del producto en el momento de añadirlo al carrito
-		[Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del producto añadido
-		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de última modificación del producto añadido
+    [Cart_Items_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del carrito
+    [Cart_Id] INT NOT NULL,  -- Identificador relación al carrito (maestro)
+    [Product_Id] INT NOT NULL, -- Identificador relación al producto
+    [Quantity] INT NOT NULL, -- Cantidad de producto en el carrito 
+    [Price] DECIMAL(18,2) NOT NULL, -- Precio del producto en el momento de añadirlo al carrito
+    [Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del producto añadido
+    [Updated_At] DATETIME NOT NULL DEFAULT GETDATE() -- Fecha de última modificación del producto añadido
 	)
 END
 

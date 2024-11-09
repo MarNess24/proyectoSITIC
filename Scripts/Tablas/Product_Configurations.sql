@@ -4,7 +4,7 @@ BEGIN
 	-- Define las configuraciones específicas para los productos, como diferentes colores y tamaños
 	CREATE TABLE [dbo].[Product_Configurations]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único de la configuración
+		[Product_Configurations_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único de la configuración
 		[Product_Id] INT NOT NULL, -- Identificador de la llave foránea de producto
 		[Configuration_Name] VARCHAR(255) NOT NULL, -- Nombre de la configuración como puede ser color y tamaño
 		[Value] VARCHAR(255) NOT NULL, -- Valor asignado dependiendo la configuración
