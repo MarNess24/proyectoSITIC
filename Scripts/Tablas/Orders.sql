@@ -16,11 +16,11 @@ END
 /* Create Table Comments */
 IF EXISTS (SELECT * FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Orders', NULL, NULL))
 BEGIN
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'AgregaDescripción', 'SCHEMA', 'dbo', 'table', 'Orders'
+  EXEC sys.sp_updateextendedproperty 'MS_Description', 'Almacena la información sobre los pedidos realizados', 'SCHEMA', 'dbo', 'table', 'Orders'
 END 
 ELSE
 BEGIN
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'AgregaDescripción', 'SCHEMA', 'dbo', 'table', 'Orders'
+  EXEC sys.sp_addextendedproperty 'MS_Description', 'Almacena la información sobre los pedidos realizados', 'SCHEMA', 'dbo', 'table', 'Orders'
 END
 GO
 

@@ -1,6 +1,7 @@
 IF NOT EXISTS (SELECT 1 FROM dbo.sysobjects WHERE id = object_id(N'[dbo].[Cart_Items]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 BEGIN
 	/* Create Tables */
+  -- Almacena la información de los elementos del carrito
 	CREATE TABLE [dbo].[Cart_Items]
 	(
     [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del carrito
@@ -17,11 +18,11 @@ END
 /* Create Table Comments */
 IF EXISTS (SELECT * FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Cart_Items', NULL, NULL))
 BEGIN
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'AgregaDescripción', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
+  EXEC sys.sp_updateextendedproperty 'MS_Description', 'Almacena la información de los elementos del carrito', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
 END 
 ELSE
 BEGIN
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'AgregaDescripción', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
+  EXEC sys.sp_addextendedproperty 'MS_Description', 'Almacena la información de los elementos del carrito', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
 END
 GO
 
