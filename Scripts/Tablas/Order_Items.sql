@@ -4,7 +4,7 @@ BEGIN
     -- Almacena la información de los elementos del pedido
 	CREATE TABLE [dbo].[Order_Items]
 	(
-      [Order_Items_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del pedido
+      [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del pedido
       [Cart_Id] INT NOT NULL,  -- Identificador relación al pedido (maestro)
       [Product_Id] INT NOT NULL, -- Identificador relación al producto
       [Quantity] INT NOT NULL, -- Cantidad de producto en el pedido 

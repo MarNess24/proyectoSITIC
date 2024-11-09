@@ -3,7 +3,7 @@ BEGIN
 	/* Create Tables */
 	CREATE TABLE [dbo].[Cart_Items]
 	(
-    [Cart_Items_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del carrito
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del carrito
     [Cart_Id] INT NOT NULL,  -- Identificador relación al carrito (maestro)
     [Product_Id] INT NOT NULL, -- Identificador relación al producto
     [Quantity] INT NOT NULL, -- Cantidad de producto en el carrito 

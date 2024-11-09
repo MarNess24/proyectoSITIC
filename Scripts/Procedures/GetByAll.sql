@@ -6,7 +6,6 @@ IF EXISTS (SELECT 1 FROM sys.objects WHERE object_id = OBJECT_ID(N'[Products].[G
 	DROP PROCEDURE [Products].[GetByAll]
 GO
 CREATE PROCEDURE [Products].[GetByAll]
-    @Id     INT
 WITH  ENCRYPTION  
 AS 
 BEGIN
@@ -17,14 +16,11 @@ BEGIN
            Current_Stock    AS 'CurrentStock',
            Max_Stock        AS 'MaxStock',
            Min_Stock        AS 'MinStock',
+           Stock_Status_Id  AS 'StockStatusId',
            Image_Path       AS 'ImagePath',
            Created_At       AS 'CreatedAt',
            Updated_At       AS 'UpdatedAt'
     FROM Products
-    WHERE Id = @Id
-
-	INSERT INTO Products (Name, Description, Price, Current_Stock, Max_Stock, Min_Stock, Image_Path)
-	VALUES (@Name, @Description, @Price, @Current_Stock, @Max_Stock, @Min_Stock, @Image_Path)
 END
 GO
 EXEC sp_recompile N'[Products].[GetByAll]';

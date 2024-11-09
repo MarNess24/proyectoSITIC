@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CardAPI
+namespace ProductoBLL
 {
     public class Class1
     {
