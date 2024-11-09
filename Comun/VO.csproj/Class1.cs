@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CardAPI
+namespace VO.csproj
 {
     public class Class1
     {

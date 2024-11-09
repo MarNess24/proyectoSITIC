@@ -1,15 +1,16 @@
 IF NOT EXISTS (SELECT 1 FROM dbo.sysobjects WHERE id = object_id(N'[dbo].[Cart_Items]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 BEGIN
 	/* Create Tables */
+  -- Almacena la información de los elementos del carrito
 	CREATE TABLE [dbo].[Cart_Items]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del carrito
-		[Cart_Id] INT NOT NULL,  -- Identificador relación al carrito (maestro)
-		[Product_Id] INT NOT NULL, -- Identificador relación al producto
-		[Quantity] INT NOT NULL, -- Cantidad de producto en el carrito 
-		[Price] DECIMAL(18,2) NOT NULL, -- Precio del producto en el momento de añadirlo al carrito
-		[Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del producto añadido
-		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de última modificación del producto añadido
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del carrito
+    [Cart_Id] INT NOT NULL,  -- Identificador relación al carrito (maestro)
+    [Product_Id] INT NOT NULL, -- Identificador relación al producto
+    [Quantity] INT NOT NULL, -- Cantidad de producto en el carrito 
+    [Price] DECIMAL(18,2) NOT NULL, -- Precio del producto en el momento de añadirlo al carrito
+    [Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del producto añadido
+    [Updated_At] DATETIME NOT NULL DEFAULT GETDATE() -- Fecha de última modificación del producto añadido
 	)
 END
 
@@ -17,11 +18,11 @@ END
 /* Create Table Comments */
 IF EXISTS (SELECT * FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Cart_Items', NULL, NULL))
 BEGIN
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'AgregaDescripción', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
+  EXEC sys.sp_updateextendedproperty 'MS_Description', 'Almacena la información de los elementos del carrito', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
 END 
 ELSE
 BEGIN
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'AgregaDescripción', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
+  EXEC sys.sp_addextendedproperty 'MS_Description', 'Almacena la información de los elementos del carrito', 'SCHEMA', 'dbo', 'table', 'Cart_Items'
 END
 GO
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProductBLL
+namespace ProductoBLL
 {
     public class Class1
     {

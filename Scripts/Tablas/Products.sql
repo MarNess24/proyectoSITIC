@@ -3,18 +3,18 @@ BEGIN
 	/* Create Tables */
 	CREATE TABLE [dbo].[Products]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- * Identificador principal de la tabla Products
-        [Name] VARCHAR(255) NOT NULL, -- * Nombre del producto
-        [Description] TEXT NOT NULL, -- * Descripción detallada del producto
-        [Price] DECIMAL(18,2) NOT NULL, -- * Precio del producto
-        [Current_Stock] INT NOT NULL, -- * Existencia actual del producto
-        [Max_Stock] INT NOT NULL, -- * Existencia máxima del producto
-		[Min_Stock] INT NOT NULL, -- * Existencia mínima del producto
-        [Stock_Status_Id] INT NOT NULL, -- * Relación con la tabla Stock_Status
-        [Image_Path] VARCHAR(255), -- * Ruta de la imagen
-        [Created_At] DATETIME DEFAULT GETDATE(), -- * Fecha de creación del producto
-        [Updated_At] DATETIME DEFAULT GETDATE(), -- * Fecha de ultima actualización del producto
-		FOREIGN KEY ([Stock_Status_Id]) REFERENCES [dbo].[Stock_Status]([Id])
+  	  [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- * Identificador principal de la tabla Products
+      [Name] VARCHAR(255) NOT NULL, -- * Nombre del producto
+	  [Description] TEXT NOT NULL, -- * Descripción detallada del producto
+	  [Price] DECIMAL(18,2) NOT NULL, -- * Precio del producto
+	  [Current_Stock] INT NOT NULL, -- * Existencia actual del producto
+	  [Max_Stock] INT NOT NULL, -- * Existencia máxima del producto
+	  [Min_Stock] INT NOT NULL, -- * Existencia mínima del producto
+	  [Stock_Status_Id] INT NULL, -- * Relación con la tabla Stock_Status
+	  [Image_Path] VARCHAR(255), -- * Ruta de la imagen
+	  [Created_At] DATETIME DEFAULT GETDATE(), -- * Fecha de creación del producto
+	  [Updated_At] DATETIME DEFAULT GETDATE(), -- * Fecha de ultima actualización del producto
+	  FOREIGN KEY ([Stock_Status_Id]) REFERENCES [dbo].[Stock_Status]([Id])
 	)
 END
 
