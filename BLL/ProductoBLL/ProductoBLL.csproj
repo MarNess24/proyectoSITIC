@@ -1,7 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>..\..\Ensamblados\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Reference Include="DAOClass">
+	    <HintPath>..\..\Ensamblados\net5.0\DAOClass.dll</HintPath>
+	  </Reference>
+	  <Reference Include="VO">
+	    <HintPath>..\..\Ensamblados\net5.0\VO.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 
 </Project>
+

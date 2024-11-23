@@ -1,17 +1,16 @@
 IF NOT EXISTS (SELECT 1 FROM dbo.sysobjects WHERE id = object_id(N'[dbo].[Orders]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 BEGIN
 	/* Create Tables */
-    -- Almacena la información sobre los pedidos realizados
+	--Almacena la información sobre los pedidos realizados
 	CREATE TABLE [dbo].[Orders]
 	(
-		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único de la tabla
-    [Total_Price] DECIMAL(20,2) NOT NULL, -- Precio total del pedido
-    [Status] VARCHAR(50) NOT NULL, -- Estado del pedido (pendiente, enviado, completado)
-    [Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del pedido
-		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE() -- Fecha de última actualización del pedido
+		[Id]			INT NOT NULL PRIMARY KEY IDENTITY(1,1), --Identificador único de la tabla
+		[Total_Price]	DECIMAL(20, 2) NOT NULL, --Precio total del pedido
+		[Status]		VARCHAR(50) NOT NULL, --Estado del pedido (e.g., pendiente, enviado, completado)
+		[Created_At]	DATETIME NOT NULL DEFAULT GETDATE(), --Fecha de creación del pedido
+		[Update_At]		DATETIME NOT NULL DEFAULT GETDATE(), --Fecha de última actualización del pedido
 	)
 END
-
 
 /* Create Table Comments */
 IF EXISTS (SELECT * FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Orders', NULL, NULL))
@@ -23,7 +22,6 @@ BEGIN
   EXEC sys.sp_addextendedproperty 'MS_Description', 'Almacena la información sobre los pedidos realizados', 'SCHEMA', 'dbo', 'table', 'Orders'
 END
 GO
-
 
 /*  Comentarios para las columnas */
 -- Descripción para la columna Id

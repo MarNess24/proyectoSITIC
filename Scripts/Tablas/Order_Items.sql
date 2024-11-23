@@ -1,29 +1,29 @@
 IF NOT EXISTS (SELECT 1 FROM dbo.sysobjects WHERE id = object_id(N'[dbo].[Order_Items]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 BEGIN
 	/* Create Tables */
-    -- Almacena la información de los elementos del pedido
+	--Almacen la información de los elmeentos del pedido
 	CREATE TABLE [dbo].[Order_Items]
 	(
-      [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- Identificador único del elemento del pedido
-      [Cart_Id] INT NOT NULL,  -- Identificador relación al pedido (maestro)
-      [Product_Id] INT NOT NULL, -- Identificador relación al producto
-      [Quantity] INT NOT NULL, -- Cantidad de producto en el pedido 
-      [Price] DECIMAL(18,2) NOT NULL, -- Precio del producto en el momento de añadirlo al pedido
-      [Created_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de creación del producto añadido
-      [Updated_At] DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha de última modificación del producto añadido
-      FOREIGN KEY  ([Order_Id]) REFERENCES [dbo].[Orders]([Id]),
-      FOREIGN KEY  ([Product_Id]) REFERENCES [dbo].[Products]([Id])
+		[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), --Identificador único del elemento del pedido
+		[Order_Id] INT NOT NULL, --Identificador relación al pedido (maestro)
+		[Product_Id] INT NOT NULL, --Identificador relación al producto
+		[Quantity] INT NOT NULL, --Cantidad del producto en el pedido
+		[Price] DECIMAL(18,2) NOT NULL, --Precio del producto en el momento de añadirlo al pedido
+		[Created_At] DATETIME NOT NULL DEFAULT GETDATE(), --Fecha de creación del producto añadido
+		[Updated_At] DATETIME NOT NULL DEFAULT GETDATE(), --Fecha de última actualización del producto añadido
+		FOREIGN KEY ([Order_Id]) REFERENCES [dbo].[Orders]([Id]),
+		FOREIGN KEY ([Product_Id]) REFERENCES [dbo].[Products]([Id]),
 	)
 END
 
 /* Create Table Comments */
 IF EXISTS (SELECT * FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Order_Items', NULL, NULL))
 BEGIN
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'Almacena la información de los elementos del pedido', 'SCHEMA', 'dbo', 'table', 'Order_Items'
+  EXEC sys.sp_updateextendedproperty 'MS_Description', 'Almacen la información de los elementos del pedido', 'SCHEMA', 'dbo', 'table', 'Order_Items'
 END 
 ELSE
 BEGIN
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'Almacena la información de los elementos del pedido', 'SCHEMA', 'dbo', 'table', 'Order_Items'
+  EXEC sys.sp_addextendedproperty 'MS_Description', 'Almacen la información de los elementos del pedido', 'SCHEMA', 'dbo', 'table', 'Order_Items'
 END
 GO
 
@@ -34,10 +34,10 @@ IF NOT EXISTS (SELECT *
                FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Order_Items', 'column', 'Id'))
     EXEC sp_addextendedproperty 'MS_Description', 'Identificador único del elemento del pedido', 'Schema', 'dbo', 'table', 'Order_Items', 'column', 'Id';
 
--- Descripción para la columna Cart_Id
+-- Descripción para la columna Order_Id
 IF NOT EXISTS (SELECT * 
-               FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Order_Items', 'column', 'Cart_Id'))
-    EXEC sp_addextendedproperty 'MS_Description', 'Identificador relación al pedido (maestro)', 'Schema', 'dbo', 'table', 'Order_Items', 'column', 'Cart_Id';
+               FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Order_Items', 'column', 'Order_Id'))
+    EXEC sp_addextendedproperty 'MS_Description', 'Identificador relación al pedido (maestro)', 'Schema', 'dbo', 'table', 'Order_Items', 'column', 'Order_Id';
 
 -- Descripción para la columna Product_Id
 IF NOT EXISTS (SELECT * 

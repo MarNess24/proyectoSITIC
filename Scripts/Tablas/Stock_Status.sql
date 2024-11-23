@@ -4,12 +4,11 @@ BEGIN
 	-- * Almacena los diferentes estados de existencia de un producto
 	CREATE TABLE [dbo].[Stock_Status]
 	(
-	 [Stock_Status_Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- * Identificador único de la tabla
+	 [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), -- * Identificador único de la tabla
    	 [Status_Name] VARCHAR(50) NOT NULL, -- * Nombre del estado de existencia
 	 [Key] VARCHAR(50) NOT NULL -- * Clave del estado de existencia
 	)
 END
-
 
 /* Create Table Comments */
 IF EXISTS (SELECT * FROM ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', '[Stock_Status]', NULL, NULL))

@@ -1,4 +1,3 @@
-CREATE DATABASE db_SITIC_Commerce
 USE db_SITIC_Commerce
 SELECT * FROM Products
 SELECT * FROM Product_Configurations

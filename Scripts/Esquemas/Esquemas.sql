@@ -4,8 +4,6 @@ BEGIN
     EXEC('CREATE SCHEMA MiEsquema');
 END
 
-USE dbSiticCommerce;
-
 IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'Products')
 BEGIN
     EXEC('CREATE SCHEMA Products');

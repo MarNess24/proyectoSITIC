@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VO.csproj
+namespace DAOClass
 {
     public class Class1
     {

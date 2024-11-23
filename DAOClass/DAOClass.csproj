@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
@@ -7,5 +7,9 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<OutputPath>C:\Users\layla\OneDrive\Documentos\SITIC\proyectoSITIC\Ensamblados\</OutputPath>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+	</ItemGroup>
 
 </Project>
